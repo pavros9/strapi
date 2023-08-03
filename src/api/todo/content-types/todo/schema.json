@@ -4,7 +4,7 @@
   "info": {
     "singularName": "todo",
     "pluralName": "todos",
-    "displayName": "Списки",
+    "displayName": "Задачи",
     "description": ""
   },
   "options": {
@@ -21,7 +21,11 @@
     },
     "priority": {
       "type": "enumeration",
-      "enum": ["minor", "regular", "critical"],
+      "enum": [
+        "minor",
+        "regular",
+        "critical"
+      ],
       "default": "regular",
       "required": true
     },
@@ -34,6 +38,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "podzadachis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::podzadachi.podzadachi",
+      "mappedBy": "spiski"
     }
   }
 }
